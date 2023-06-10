@@ -1,0 +1,12 @@
+cd OEE_PROJECT
+
+pipenv shell
+
+python manage.py Data.sqlite3 > models.py
+
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py runserver

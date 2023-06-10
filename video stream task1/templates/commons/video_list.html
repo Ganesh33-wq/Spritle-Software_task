@@ -1,0 +1,21 @@
+<h1>Video List</h1>
+<form method="get" action="{% url 'video_search' %}">
+    <input type="text" name="query" placeholder="Search videos">
+    <button type="submit">Search</button>
+</form>
+
+{% if videos %}
+    <ul>
+        {% for video in videos %}
+            <li>
+                <a href="{% url 'stream_video' video.id %}">{{ video.name }}</a>
+                {% if user.is_authenticated and video.user == user %}
+                    <a href="{% url 'edit_video' video.id %}">Edit</a>
+                    <a href="{% url 'delete_video' video.id %}">Delete</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No videos found.</p>
+{% endif %}

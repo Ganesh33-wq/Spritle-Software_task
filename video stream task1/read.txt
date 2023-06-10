@@ -1,0 +1,10 @@
+open floder sprintal task
+
+
+open terminal or cmd
+
+then , cmd : pipenv shell
+  
+cd video stream task1
+
+python manage.py runserver
